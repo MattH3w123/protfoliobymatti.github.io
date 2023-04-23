@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+[data-mode='one'] {
+  --backg-color: linear-gradient(to right, #ad5389, #3c1053);
+  --btn-color: linear-gradient(to right, #ad5389, #3c1053);
+  --serce-color: rgba(0,0,0,0.5);
+}
+
+[data-mode='two'] {
+  --backg-color: linear-gradient(to bottom, #8e0e00, #1f1c18);
+  --btn-color: linear-gradient(to bottom, #8e0e00, #1f1c18);
+  --serce-color: rgba(0,0,0,0.5);
+}
+
+body {
+  background: var(--backg-color);
+    /*background: linear-gradient(to right, #ad5389, #3c1053);*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+button {
+	position: absolute;
+	top: 50px;
+	right: 50px;
+  bottom: 10px;
+	width: 60px;
+	height: 60px;
+	border-radius: 60px;
+	cursor: pointer;
+  border: 2px solid black;
+  background: var(--btn-color);
+}
+
+.serce {
+  position: relative;
+    display: flex;
+    padding-bottom: 170px;
+   justify-content: center;
+   text-align: center;
+   align-items: center;
+   border-radius: 50px;
+   width: 800px;
+   height: 74%;
+   margin: 0 auto;
+   z-index: 1;
+   background: var(--serce-color);
+   overflow: hidden;
+}
+
+.serce::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 180%;
+  /*background: linear-gradient(to top, #f4c4f3, #fc67fa);*/
+  background: conic-gradient(
+    #fd004c, #fe9000, #fff020, #3edf4b, #3363ff, #b102b7, #fd004c 
+  );
+  animation: anim 5s linear infinite;
+}
+
+.serce::after {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  background: var(--backg-color);
+  border-radius: 45px;
+}
+
+@keyframes anim {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.heart {
+    display: block;
+   border-radius: 6.9rem;
+   transition: 0.2s;
+   position: relative;
+   height: 390px;
+   z-index: 1;
+}
+
+.text {
+    width: auto;
+    position: absolute;
+    padding-top: 50px;
+    top: 120px;
+    left: 20px;
+    right: 20px;
+    bottom: 40px;
+    background: transparent;
+    border-radius: 5px;
+    transform: scaleY(0);
+    transition: transform 0.5s;
+    z-index: -1;
+}
+
+.imgg img {
+    border-radius: 6.1rem;
+    display: block;
+   max-width: 390px;
+   height: 390px;
+   cursor: pointer;
+   margin: 0 auto;
+   transition: all 0.6s ease-out;
+   animation: heatrpulse 1s linear infinite;
+   z-index: 1;
+}
+
+
+@keyframes heatrpulse {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    20% {
+      transform: rotate(0deg) scale(1);
+    }
+    40% {
+      transform: rotate(0deg) scale(1.2);
+    }
+    60% {
+      transform: rotate(0deg) scale(1.1);
+    }
+    80% {
+      transform: rotate(0deg) scale(1.2);
+    }
+    100% {
+      transform: rotate(0deg) scale(1);
+    }
+  }
+
+.imgg:hover .text {
+    transform: scaleY(1);
+}
+
+.heart img:hover {
+    transform: scale(1.07);
+}
+
+.text {
+    position: absolute;
+    top: 75%;
+    left: 0;
+    right: 0;
+    /*transform: translateY(-50%);*/
+    text-align: center;
+    padding-bottom: 15px;
+    color: #fff;
+    pointer-events: none;
+}
+
+.content {
+    text-align: center;
+    align-items: center;
+}
+
+h2 {
+    font-size: 44pt;
+    color: white;
+    margin: 20px auto;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+@media (min-width: 400px) {
+  .serce {
+    display: flex;
+  }
+
+  .heart {
+    width: 100%;
+
+  }
+
+  .text {
+    margin: 0 auto;
+  }
+
+}
